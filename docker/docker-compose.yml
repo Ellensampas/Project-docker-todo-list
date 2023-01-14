@@ -3,8 +3,8 @@ services:
   todotests:
     image: todotests
     depends_on:
-      - todofront
       - todoback
+      - todofront
     environment:
       - FRONT_HOST=todofront
     restart: always
