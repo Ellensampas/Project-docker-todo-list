@@ -1,7 +1,7 @@
 version: '3'
 services:
   todotests:
-    build: docker/todo-app/tests
+    image: todotests
     depends_on:
       - todofront
       - todoback
@@ -10,7 +10,7 @@ services:
     restart: always
 
   todofront:
-    build: docker/todo-app/front-end
+    image: todofrontend
     ports:
       - 3000:3000
     depends_on:
@@ -18,9 +18,9 @@ services:
     environment:
       - REACT_APP_API_HOST=todoback
     restart: always
-    
+
   todoback:
-    build: docker/todo-app/back-end
+    image: todobackend
     ports:
       - 3001:3001
     restart: always
